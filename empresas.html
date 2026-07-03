@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #1B2E1C; }
+    @keyframes raiz-rise { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+    [data-reveal] { opacity: 0; transform: translateY(48px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    [data-reveal].raiz-in { opacity: 1; transform: translateY(0); }
+    @keyframes raiz-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+  <script src="./raiz-fx.js"></script>
+</helmet>
+
+<div style="font-family: Archivo, sans-serif; background: #1B2E1C; color: #F4EEDF; min-height: 100vh;">
+
+  <nav data-screen-label="Navegação" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 40px; border-bottom: 2px solid #F4EEDF; position: sticky; top: 0; background: #1B2E1C; z-index: 50;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #F4EEDF; flex: none;">
+      <div style="width: 34px; height: 34px; background: #D93A21; border-radius: 50% 50% 50% 4px; display: grid; place-items: center; color: #F4EEDF; font-family: Anton, sans-serif; font-size: 18px; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="transform: rotate(-15deg) scale(1.1);">R</div>
+      <div style="font-family: Anton, sans-serif; font-size: 19px; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;">Instituto Raiz</div>
+    </a>
+    <div style="display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; flex-wrap: wrap; justify-content: flex-end;">
+      <a href="projetos.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Projetos</a>
+      <a href="voluntariado.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Voluntariado</a>
+      <a href="adote.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Adote</a>
+      <a href="sobre.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Sobre</a>
+      <a href="noticias.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Notícias</a>
+      <a href="empresas.html" style="color: #F0D45C; text-decoration: none; border-bottom: 2px solid #F0D45C; padding-bottom: 2px;">Empresas</a>
+      <a href="transparencia.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Transparência</a>
+      <a href="contato.html" style="color: #F4EEDF; text-decoration: none;" style-hover="color: #F0D45C;">Contato</a>
+      <a href="doar.html" style="background: #D93A21; color: #F4EEDF; text-decoration: none; padding: 11px 24px; border-radius: 999px; font-family: Anton, sans-serif; font-size: 15px; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #D93A21;" style-hover="background: #F0D45C; color: #1B2E1C;">Doar agora</a>
+    </div>
+  </nav>
+
+  <header data-screen-label="Hero" style="padding: 88px 40px 72px; position: relative; overflow: hidden;">
+    <img src="https://images.unsplash.com/photo-1615729947596-a598e5de0ab3?w=1800&q=75&auto=format&fit=crop" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.22; filter: saturate(0.6);">
+    <div aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27, 46, 28, 0.85), rgba(27, 46, 28, 0.95));"></div>
+    <div style="position: relative; z-index: 2; max-width: 1180px; margin: 0 auto;">
+      <span style="color: #F0D45C; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">✺ Para empresas</span>
+      <h1 style="margin: 16px 0 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(52px, 8.5vw, 130px); line-height: 0.95; animation: raiz-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;">Sua marca com<br>raiz no <span style="color: #F0D45C;">chão</span></h1>
+      <p style="margin: 24px 0 0; font-size: 19px; line-height: 1.55; max-width: 620px; color: #DCE5D3; animation: raiz-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;">ESG de verdade não é selo em PowerPoint: é hectare restaurado, escola adotada e relatório auditado com o nome da sua empresa.</p>
+    </div>
+  </header>
+
+  <!-- MODELOS -->
+  <section data-screen-label="Modelos de parceria" style="background: #F4EEDF; color: #1B2E1C; border-top: 2px solid #1B2E1C; padding: 88px 40px;">
+    <div style="max-width: 1180px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 44px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(36px, 4.4vw, 64px);">Três jeitos de <span style="color: #D93A21;">plantar junto</span></h2>
+      <div data-reveal-stagger style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div style="border: 2px solid #1B2E1C; border-radius: 18px; overflow: hidden; background: #FBF7EA; display: flex; flex-direction: column;">
+          <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=700&q=75&auto=format&fit=crop" alt="Viveiro" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 2px solid #1B2E1C; display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="transform: scale(1.05);">
+          <div style="padding: 26px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+            <h3 style="margin: 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 24px;">Adote uma escola</h3>
+            <div style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #D93A21;">R$ 1.500/mês</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3C4A36; flex: 1;">Sua empresa banca o viveiro de uma escola inteira: mudas, formação e material. Placa com sua marca no viveiro e visitas trimestrais para o time.</p>
+          </div>
+        </div>
+        <div style="border: 2px solid #1B2E1C; border-radius: 18px; overflow: hidden; background: #FBF7EA; display: flex; flex-direction: column;">
+          <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=700&q=75&auto=format&fit=crop" alt="Hectare" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 2px solid #1B2E1C; display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="transform: scale(1.05);">
+          <div style="padding: 26px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+            <h3 style="margin: 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 24px;">Adote um hectare</h3>
+            <div style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #D93A21;">R$ 38 mil/ano</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3C4A36; flex: 1;">Um hectare do Corredor Verde restaurado em nome da sua empresa: 1.100 mudas, monitoramento por 3 anos e relatório de carbono georreferenciado.</p>
+          </div>
+        </div>
+        <div style="border: 2px solid #1B2E1C; border-radius: 18px; overflow: hidden; background: #FBF7EA; display: flex; flex-direction: column;">
+          <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=700&q=75&auto=format&fit=crop" alt="Mutirão" style="width: 100%; height: 180px; object-fit: cover; border-bottom: 2px solid #1B2E1C; display: block; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);" style-hover="transform: scale(1.05);">
+          <div style="padding: 26px; display: flex; flex-direction: column; gap: 10px; flex: 1;">
+            <h3 style="margin: 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 24px;">Dia de plantio do time</h3>
+            <div style="font-family: 'Instrument Serif', serif; font-size: 26px; color: #D93A21;">R$ 4.800/evento</div>
+            <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #3C4A36; flex: 1;">Team building que deixa raiz: levamos até 40 pessoas do seu time pra um mutirão exclusivo, com logística completa e 480 mudas plantadas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE SUA MARCA LEVA -->
+  <section data-screen-label="Benefícios" style="background: #F0D45C; color: #1B2E1C; border-top: 2px solid #1B2E1C; padding: 88px 40px;">
+    <div style="max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.3fr; gap: 56px; align-items: center;">
+      <h2 data-reveal style="margin: 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(36px, 4.4vw, 64px); line-height: 1;">O que sua marca leva</h2>
+      <div data-reveal-stagger style="display: flex; flex-direction: column;">
+        <div style="display: flex; gap: 18px; align-items: baseline; padding: 18px 0; border-bottom: 2px solid #1B2E1C;"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; color: #D93A21;">✺</span><p style="margin: 0; font-size: 17px; line-height: 1.5;"><strong>Relatório de impacto auditado</strong> — números que passam por qualquer due diligence.</p></div>
+        <div style="display: flex; gap: 18px; align-items: baseline; padding: 18px 0; border-bottom: 2px solid #1B2E1C;"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; color: #D93A21;">✺</span><p style="margin: 0; font-size: 17px; line-height: 1.5;"><strong>Conteúdo pronto pra comunicar</strong> — fotos, vídeos e histórias reais do seu investimento.</p></div>
+        <div style="display: flex; gap: 18px; align-items: baseline; padding: 18px 0; border-bottom: 2px solid #1B2E1C;"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; color: #D93A21;">✺</span><p style="margin: 0; font-size: 17px; line-height: 1.5;"><strong>Incentivo fiscal</strong> — doações dedutíveis via Lei de Incentivo e Fundos da Infância.</p></div>
+        <div style="display: flex; gap: 18px; align-items: baseline; padding: 18px 0;"><span style="font-family: 'Instrument Serif', serif; font-size: 28px; color: #D93A21;">✺</span><p style="margin: 0; font-size: 17px; line-height: 1.5;"><strong>Time engajado</strong> — plantios corporativos com 94% de recomendação interna.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCEIROS + CTA -->
+  <section data-screen-label="Parceiros" style="background: #F4EEDF; color: #1B2E1C; border-top: 2px solid #1B2E1C; padding: 88px 40px; text-align: center;">
+    <p data-reveal style="margin: 0 0 28px; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #6B7A5E;">Quem já planta com a gente</p>
+    <div data-reveal-stagger style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 56px;">
+      <span style="border: 2px solid #1B2E1C; border-radius: 999px; padding: 12px 28px; font-family: Anton, sans-serif; font-size: 17px; text-transform: uppercase; letter-spacing: 1px; background: #FBF7EA;">Cooperativa Sertão Vivo</span>
+      <span style="border: 2px solid #1B2E1C; border-radius: 999px; padding: 12px 28px; font-family: Anton, sans-serif; font-size: 17px; text-transform: uppercase; letter-spacing: 1px; background: #FBF7EA;">Padaria do Vale</span>
+      <span style="border: 2px solid #1B2E1C; border-radius: 999px; padding: 12px 28px; font-family: Anton, sans-serif; font-size: 17px; text-transform: uppercase; letter-spacing: 1px; background: #FBF7EA;">Grupo Aurora Têxtil</span>
+      <span style="border: 2px solid #1B2E1C; border-radius: 999px; padding: 12px 28px; font-family: Anton, sans-serif; font-size: 17px; text-transform: uppercase; letter-spacing: 1px; background: #FBF7EA;">Café Chapada</span>
+      <span style="border: 2px solid #1B2E1C; border-radius: 999px; padding: 12px 28px; font-family: Anton, sans-serif; font-size: 17px; text-transform: uppercase; letter-spacing: 1px; background: #FBF7EA;">Sua empresa aqui ✺</span>
+    </div>
+    <div data-reveal>
+      <h2 style="margin: 0 0 24px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(32px, 4vw, 56px);">Vamos conversar?</h2>
+      <a href="contato.html" style="display: inline-block; background: #D93A21; color: #F4EEDF; text-decoration: none; padding: 18px 44px; border-radius: 999px; font-family: Anton, sans-serif; font-size: 19px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #1B2E1C;">Falar com a equipe</a>
+    </div>
+  </section>
+
+  <footer data-screen-label="Rodapé" style="background: #14230F; color: #A9BCA0; border-top: 2px solid #1B2E1C;">
+    <div style="padding: 56px 40px 0; overflow: hidden;">
+      <div style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(44px, 8vw, 128px); line-height: 0.95; color: #F4EEDF; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">Instituto Raiz<span aria-hidden="true" style="color: #D93A21; font-size: 0.45em; display: inline-block; animation: raiz-spin 14s linear infinite;">✺</span></div>
+      <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: #A9BCA0; margin-top: 12px;">Plantar futuro no sertão é coletivo.</div>
+    </div>
+    <div style="max-width: 1360px; margin: 0 auto; padding: 44px 40px 48px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.4fr; gap: 44px; border-bottom: 1px solid #3C4A36;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #A9BCA0; max-width: 360px;">OSCIP registrada — CNPJ 00.000.000/0001-00. Sede em Nova Olinda, Ceará. Balanços auditados e relatórios de plantio publicados anualmente.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">Instagram</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">YouTube</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">LinkedIn</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">WhatsApp</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Conheça</div>
+        <a href="projetos.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Projetos</a>
+        <a href="voluntariado.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Voluntariado</a>
+        <a href="adote.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Adote uma árvore</a>
+        <a href="noticias.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Notícias</a>
+        <a href="sobre.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Sobre nós</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Apoie</div>
+        <a href="doar.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Doar agora</a>
+        <a href="empresas.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Para empresas</a>
+        <a href="transparencia.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Transparência</a>
+        <a href="contato.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Contato</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Notícias da mata, na sua caixa</div>
+        <div style="display: flex; gap: 8px;">
+          <input type="email" placeholder="seu@email.com" style="flex: 1; background: #F4EEDF; border: none; border-radius: 999px; padding: 13px 18px; font-family: Archivo, sans-serif; font-size: 14px; color: #1B2E1C; min-width: 0;">
+          <button style="background: #D93A21; color: #F4EEDF; border: none; border-radius: 999px; padding: 13px 22px; font-family: Anton, sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; flex: none;" style-hover="background: #F0D45C; color: #1B2E1C;">Assinar</button>
+        </div>
+        <div style="font-size: 13px; color: #6B7A5E;">Uma carta por mês. Sem spam, só semente.</div>
+      </div>
+    </div>
+    <div style="max-width: 1360px; margin: 0 auto; padding: 20px 40px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px;">
+      <span>© 2026 Instituto Raiz</span>
+      <span style="color: #F0D45C;">Feito no sertão ✺</span>
+      <a href="#" style="color: #F4EEDF; text-decoration: none; font-weight: 700;" style-hover="color: #F0D45C;">↑ Voltar ao topo</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const revealEl = (el) => {
+      if (el.hasAttribute('data-reveal')) el.classList.add('raiz-in');
+      if (el.hasAttribute('data-reveal-stagger')) {
+        Array.from(el.children).forEach((c, i) => {
+          setTimeout(() => { c.style.opacity = '1'; c.style.transform = 'translateY(0)'; }, i * 140);
+        });
+      }
+    };
+    document.querySelectorAll('[data-reveal-stagger]').forEach((el) => {
+      Array.from(el.children).forEach((c) => {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(48px)';
+        c.style.transition = 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+      });
+    });
+    const check = () => {
+      const vh = window.innerHeight;
+      document.querySelectorAll('[data-reveal], [data-reveal-stagger]').forEach((el) => {
+        if (el._raizDone) return;
+        if (el.getBoundingClientRect().top < vh * 0.92) { el._raizDone = true; revealEl(el); }
+      });
+    };
+    this._check = check;
+    document.addEventListener('scroll', check, true);
+    window.addEventListener('resize', check);
+    this._iv = setInterval(check, 350);
+    check();
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this._check, true);
+    window.removeEventListener('resize', this._check);
+    clearInterval(this._iv);
+  }
+}
+</script>
+</body>
+</html>

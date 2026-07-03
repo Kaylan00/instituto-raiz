@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F0D45C; }
+    @keyframes raiz-rise { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes raiz-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    [data-reveal] { opacity: 0; transform: translateY(48px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    [data-reveal].raiz-in { opacity: 1; transform: translateY(0); }
+  </style>
+  <script src="./raiz-fx.js"></script>
+</helmet>
+
+<div style="font-family: Archivo, sans-serif; background: #F0D45C; color: #1B2E1C; min-height: 100vh;">
+
+  <nav data-screen-label="Navegação" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 40px; border-bottom: 2px solid #1B2E1C; position: sticky; top: 0; background: #F0D45C; z-index: 50;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1B2E1C; flex: none;">
+      <div style="width: 34px; height: 34px; background: #D93A21; border-radius: 50% 50% 50% 4px; display: grid; place-items: center; color: #F4EEDF; font-family: Anton, sans-serif; font-size: 18px; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="transform: rotate(-15deg) scale(1.1);">R</div>
+      <div style="font-family: Anton, sans-serif; font-size: 19px; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;">Instituto Raiz</div>
+    </a>
+    <div style="display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; flex-wrap: wrap; justify-content: flex-end;">
+      <a href="projetos.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Projetos</a>
+      <a href="voluntariado.html" style="color: #D93A21; text-decoration: none; border-bottom: 2px solid #D93A21; padding-bottom: 2px;">Voluntariado</a>
+      <a href="adote.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Adote</a>
+      <a href="sobre.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Sobre</a>
+      <a href="noticias.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Notícias</a>
+      <a href="empresas.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Empresas</a>
+      <a href="transparencia.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Transparência</a>
+      <a href="contato.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Contato</a>
+      <a href="doar.html" style="background: #D93A21; color: #F4EEDF; text-decoration: none; padding: 11px 24px; border-radius: 999px; font-family: Anton, sans-serif; font-size: 15px; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1B2E1C;" style-hover="background: #1B2E1C; color: #F4EEDF;">Doar agora</a>
+    </div>
+  </nav>
+
+  <header data-screen-label="Hero" style="padding: 72px 40px 64px; position: relative; overflow: hidden; background-image: radial-gradient(#1B2E1C 1px, transparent 1.5px); background-size: 34px 34px;">
+    <span aria-hidden="true" style="position: absolute; top: 70px; right: 8%; color: #D93A21; font-size: 60px; display: inline-block; animation: raiz-spin 16s linear infinite;">✺</span>
+    <h1 style="margin: 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(56px, 9.5vw, 150px); line-height: 0.95; animation: raiz-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;">Bota a mão<br>na <span style="color: #D93A21;">terra</span></h1>
+    <div style="display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: end; margin-top: 36px; animation: raiz-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;">
+      <p style="margin: 0; max-width: 560px; font-size: 19px; line-height: 1.55;">Não precisa saber nada de planta — a gente ensina. Mutirões acontecem todo mês, sempre aos sábados, com café da manhã, muda e merenda garantidas.</p>
+      <a href="#inscricao" style="background: #1B2E1C; color: #F4EEDF; text-decoration: none; padding: 16px 34px; border-radius: 999px; font-family: Anton, sans-serif; font-size: 17px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #D93A21;">Quero participar</a>
+    </div>
+  </header>
+
+  <!-- PRÓXIMOS MUTIRÕES -->
+  <section data-screen-label="Próximos mutirões" style="background: #F4EEDF; border-top: 2px solid #1B2E1C; padding: 88px 40px;">
+    <h2 data-reveal style="margin: 0 0 40px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(36px, 4.4vw, 64px);">Próximos <span style="color: #D93A21;">mutirões</span></h2>
+    <div data-reveal-stagger style="display: flex; flex-direction: column; border: 2px solid #1B2E1C; border-radius: 18px; overflow: hidden; background: #FBF7EA;">
+      <div style="display: grid; grid-template-columns: 140px 1fr auto auto; gap: 24px; align-items: center; padding: 26px 30px; border-bottom: 2px solid #1B2E1C; transition: background 0.2s;" style-hover="background: #F0D45C;">
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1;">11</div><div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Julho · Sáb</div></div>
+        <div><div style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: 22px;">Plantio no Corredor Verde</div><div style="font-size: 14px; color: #6B7A5E;">Margem do rio Cariús, Nova Olinda · 6h às 11h</div></div>
+        <span style="background: #F0D45C; border: 1.5px solid #1B2E1C; border-radius: 999px; padding: 5px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase;">40 vagas</span>
+        <a href="#inscricao" style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: 15px; color: #D93A21; text-decoration: none; border-bottom: 2px solid #D93A21;">Inscrever →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 140px 1fr auto auto; gap: 24px; align-items: center; padding: 26px 30px; border-bottom: 2px solid #1B2E1C; transition: background 0.2s;" style-hover="background: #F0D45C;">
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1;">25</div><div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Julho · Sáb</div></div>
+        <div><div style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: 22px;">Cisterna em Santana do Cariri</div><div style="font-size: 14px; color: #6B7A5E;">Sítio Barreiras · 7h às 12h</div></div>
+        <span style="background: #F0D45C; border: 1.5px solid #1B2E1C; border-radius: 999px; padding: 5px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase;">20 vagas</span>
+        <a href="#inscricao" style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: 15px; color: #D93A21; text-decoration: none; border-bottom: 2px solid #D93A21;">Inscrever →</a>
+      </div>
+      <div style="display: grid; grid-template-columns: 140px 1fr auto auto; gap: 24px; align-items: center; padding: 26px 30px; transition: background 0.2s;" style-hover="background: #F0D45C;">
+        <div><div style="font-family: 'Instrument Serif', serif; font-size: 44px; line-height: 1;">08</div><div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1px;">Agosto · Sáb</div></div>
+        <div><div style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: 22px;">Manutenção dos viveiros escolares</div><div style="font-size: 14px; color: #6B7A5E;">EEF Dona Chiquinha, Potengi · 7h às 11h</div></div>
+        <span style="background: #F0D45C; border: 1.5px solid #1B2E1C; border-radius: 999px; padding: 5px 14px; font-size: 12px; font-weight: 700; text-transform: uppercase;">30 vagas</span>
+        <a href="#inscricao" style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: 15px; color: #D93A21; text-decoration: none; border-bottom: 2px solid #D93A21;">Inscrever →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO FUNCIONA -->
+  <section data-screen-label="Como funciona" style="background: #1B2E1C; color: #F4EEDF; border-top: 2px solid #1B2E1C; padding: 88px 40px; position: relative; overflow: hidden;">
+    <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=1600&q=75&auto=format&fit=crop" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.18; filter: saturate(0.6);">
+    <div style="position: relative; z-index: 2; max-width: 1180px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 48px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(36px, 4.4vw, 64px);">Como <span style="color: #F0D45C;">funciona</span></h2>
+      <div data-reveal-stagger style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+        <div style="border: 2px solid #F4EEDF; border-radius: 16px; padding: 30px; background: rgba(27, 46, 28, 0.75);">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 52px; color: #F0D45C;">01</div>
+          <h3 style="margin: 12px 0 8px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 22px;">Inscreva-se</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #DCE5D3;">Escolha um mutirão e preencha o formulário. Você recebe confirmação e ponto de encontro no WhatsApp.</p>
+        </div>
+        <div style="border: 2px solid #F4EEDF; border-radius: 16px; padding: 30px; background: rgba(27, 46, 28, 0.75);">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 52px; color: #F0D45C;">02</div>
+          <h3 style="margin: 12px 0 8px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 22px;">Apareça</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #DCE5D3;">Leve boné, garrafa d'água e disposição. Ferramentas, luvas, café da manhã e transporte local são por nossa conta.</p>
+        </div>
+        <div style="border: 2px solid #F4EEDF; border-radius: 16px; padding: 30px; background: rgba(27, 46, 28, 0.75);">
+          <div style="font-family: 'Instrument Serif', serif; font-size: 52px; color: #F0D45C;">03</div>
+          <h3 style="margin: 12px 0 8px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 22px;">Plante</h3>
+          <p style="margin: 0; font-size: 15px; line-height: 1.55; color: #DCE5D3;">Cada voluntário planta em média 12 mudas por manhã — e volta pra casa com o pé no chão e o coração cheio.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSCRIÇÃO -->
+  <section id="inscricao" data-screen-label="Inscrição" style="background: #F4EEDF; border-top: 2px solid #1B2E1C; padding: 88px 40px; display: flex; justify-content: center;">
+    <div data-reveal style="background: #FBF7EA; border: 2px solid #1B2E1C; border-radius: 24px; padding: 44px; width: min(640px, 100%); box-shadow: 12px 12px 0 #D93A21;">
+      <h2 style="margin: 0 0 8px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 34px;">Ficha de voluntário</h2>
+      <p style="margin: 0 0 28px; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 18px; color: #6B7A5E;">Leva menos de um minuto.</p>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <input type="text" placeholder="Nome completo" style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C;">
+        <input type="tel" placeholder="WhatsApp (com DDD)" style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C;">
+        <select style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C;">
+          <option>Mutirão: Plantio no Corredor Verde — 11/jul</option>
+          <option>Mutirão: Cisterna em Santana do Cariri — 25/jul</option>
+          <option>Mutirão: Manutenção dos viveiros — 08/ago</option>
+          <option>Quero ser voluntário recorrente</option>
+        </select>
+        <button style="background: #D93A21; color: #F4EEDF; border: 2px solid #1B2E1C; border-radius: 999px; padding: 18px; font-family: Anton, sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;" style-hover="background: #1B2E1C;">Confirmar inscrição</button>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Rodapé" style="background: #14230F; color: #A9BCA0; border-top: 2px solid #1B2E1C;">
+    <div style="padding: 56px 40px 0; overflow: hidden;">
+      <div style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(44px, 8vw, 128px); line-height: 0.95; color: #F4EEDF; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">Instituto Raiz<span aria-hidden="true" style="color: #D93A21; font-size: 0.45em; display: inline-block; animation: raiz-spin 14s linear infinite;">✺</span></div>
+      <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: #A9BCA0; margin-top: 12px;">Plantar futuro no sertão é coletivo.</div>
+    </div>
+    <div style="max-width: 1360px; margin: 0 auto; padding: 44px 40px 48px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.4fr; gap: 44px; border-bottom: 1px solid #3C4A36;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #A9BCA0; max-width: 360px;">OSCIP registrada — CNPJ 00.000.000/0001-00. Sede em Nova Olinda, Ceará. Balanços auditados e relatórios de plantio publicados anualmente.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">Instagram</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">YouTube</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">LinkedIn</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">WhatsApp</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Conheça</div>
+        <a href="projetos.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Projetos</a>
+        <a href="voluntariado.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Voluntariado</a>
+        <a href="adote.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Adote uma árvore</a>
+        <a href="noticias.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Notícias</a>
+        <a href="sobre.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Sobre nós</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Apoie</div>
+        <a href="doar.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Doar agora</a>
+        <a href="empresas.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Para empresas</a>
+        <a href="transparencia.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Transparência</a>
+        <a href="contato.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Contato</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Notícias da mata, na sua caixa</div>
+        <div style="display: flex; gap: 8px;">
+          <input type="email" placeholder="seu@email.com" style="flex: 1; background: #F4EEDF; border: none; border-radius: 999px; padding: 13px 18px; font-family: Archivo, sans-serif; font-size: 14px; color: #1B2E1C; min-width: 0;">
+          <button style="background: #D93A21; color: #F4EEDF; border: none; border-radius: 999px; padding: 13px 22px; font-family: Anton, sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; flex: none;" style-hover="background: #F0D45C; color: #1B2E1C;">Assinar</button>
+        </div>
+        <div style="font-size: 13px; color: #6B7A5E;">Uma carta por mês. Sem spam, só semente.</div>
+      </div>
+    </div>
+    <div style="max-width: 1360px; margin: 0 auto; padding: 20px 40px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px;">
+      <span>© 2026 Instituto Raiz</span>
+      <span style="color: #F0D45C;">Feito no sertão ✺</span>
+      <a href="#" style="color: #F4EEDF; text-decoration: none; font-weight: 700;" style-hover="color: #F0D45C;">↑ Voltar ao topo</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() {
+    const revealEl = (el) => {
+      if (el.hasAttribute('data-reveal')) el.classList.add('raiz-in');
+      if (el.hasAttribute('data-reveal-stagger')) {
+        Array.from(el.children).forEach((c, i) => {
+          setTimeout(() => { c.style.opacity = '1'; c.style.transform = 'translateY(0)'; }, i * 140);
+        });
+      }
+    };
+    document.querySelectorAll('[data-reveal-stagger]').forEach((el) => {
+      Array.from(el.children).forEach((c) => {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(48px)';
+        c.style.transition = 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+      });
+    });
+    const check = () => {
+      const vh = window.innerHeight;
+      document.querySelectorAll('[data-reveal], [data-reveal-stagger]').forEach((el) => {
+        if (el._raizDone) return;
+        if (el.getBoundingClientRect().top < vh * 0.92) { el._raizDone = true; revealEl(el); }
+      });
+    };
+    this._check = check;
+    document.addEventListener('scroll', check, true);
+    window.addEventListener('resize', check);
+    this._iv = setInterval(check, 350);
+    check();
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this._check, true);
+    window.removeEventListener('resize', this._check);
+    clearInterval(this._iv);
+  }
+}
+</script>
+</body>
+</html>

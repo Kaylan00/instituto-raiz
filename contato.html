@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; padding: 0; background: #F4EEDF; }
+    image-slot { display: block; width: 100%; height: 100%; }
+    @keyframes raiz-rise { from { opacity: 0; transform: translateY(60px); } to { opacity: 1; transform: translateY(0); } }
+    [data-reveal] { opacity: 0; transform: translateY(48px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
+    [data-reveal].raiz-in { opacity: 1; transform: translateY(0); }
+    @keyframes raiz-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+  <script src="./raiz-fx.js"></script>
+</helmet>
+
+<div style="font-family: Archivo, sans-serif; background: #F4EEDF; color: #1B2E1C; min-height: 100vh;">
+
+  <nav data-screen-label="Navegação" style="display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 18px 40px; border-bottom: 2px solid #1B2E1C; position: sticky; top: 0; background: #F4EEDF; z-index: 50;">
+    <a href="index.html" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #1B2E1C; flex: none;">
+      <div style="width: 34px; height: 34px; background: #D93A21; border-radius: 50% 50% 50% 4px; display: grid; place-items: center; color: #F4EEDF; font-family: Anton, sans-serif; font-size: 18px; transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);" style-hover="transform: rotate(-15deg) scale(1.1);">R</div>
+      <div style="font-family: Anton, sans-serif; font-size: 19px; letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;">Instituto Raiz</div>
+    </a>
+    <div style="display: flex; align-items: center; gap: 20px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.4px; flex-wrap: wrap; justify-content: flex-end;">
+      <a href="projetos.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Projetos</a>
+      <a href="voluntariado.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Voluntariado</a>
+      <a href="adote.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Adote</a>
+      <a href="sobre.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Sobre</a>
+      <a href="noticias.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Notícias</a>
+      <a href="empresas.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Empresas</a>
+      <a href="transparencia.html" style="color: #1B2E1C; text-decoration: none;" style-hover="color: #D93A21;">Transparência</a>
+      <a href="contato.html" style="color: #D93A21; text-decoration: none; border-bottom: 2px solid #D93A21; padding-bottom: 2px;">Contato</a>
+      <a href="doar.html" style="background: #D93A21; color: #F4EEDF; text-decoration: none; padding: 11px 24px; border-radius: 999px; font-family: Anton, sans-serif; font-size: 15px; letter-spacing: 1px; text-transform: uppercase; border: 2px solid #1B2E1C;" style-hover="background: #1B2E1C; color: #F4EEDF;">Doar agora</a>
+    </div>
+  </nav>
+
+  <header data-screen-label="Hero" style="padding: 72px 40px 48px; border-bottom: 2px solid #1B2E1C;">
+    <h1 style="margin: 0; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(52px, 8.5vw, 130px); line-height: 0.95; animation: raiz-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) backwards;">Chega mais, <span style="color: #D93A21;">conversa</span></h1>
+    <p style="margin: 24px 0 0; font-family: 'Instrument Serif', serif; font-style: italic; font-size: 24px; color: #3C4A36; max-width: 560px; animation: raiz-rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;">Porta aberta e café coado. Escreve, liga ou aparece na sede.</p>
+  </header>
+
+  <!-- FORM + INFO -->
+  <section data-screen-label="Formulário e contatos" style="padding: 72px 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; max-width: 1180px; margin: 0 auto;">
+    <div data-reveal style="background: #FBF7EA; border: 2px solid #1B2E1C; border-radius: 24px; padding: 40px; box-shadow: 12px 12px 0 #F0D45C, 12px 12px 0 2px #1B2E1C;">
+      <h2 style="margin: 0 0 24px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 30px;">Manda sua mensagem</h2>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <input type="text" placeholder="Nome" style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C;">
+          <input type="email" placeholder="E-mail" style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C;">
+        </div>
+        <select style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C;">
+          <option>Assunto: quero ser voluntário</option>
+          <option>Assunto: parceria com minha empresa</option>
+          <option>Assunto: dúvida sobre doações</option>
+          <option>Assunto: imprensa</option>
+          <option>Assunto: outro</option>
+        </select>
+        <textarea placeholder="Sua mensagem…" rows="5" style="border: 2px solid #1B2E1C; border-radius: 12px; padding: 15px 18px; font-family: Archivo, sans-serif; font-size: 15px; background: #FFFFFF; color: #1B2E1C; resize: vertical;"></textarea>
+        <button style="background: #D93A21; color: #F4EEDF; border: 2px solid #1B2E1C; border-radius: 999px; padding: 18px; font-family: Anton, sans-serif; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer;" style-hover="background: #1B2E1C;">Enviar mensagem</button>
+      </div>
+    </div>
+    <div data-reveal-stagger style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="border: 2px solid #1B2E1C; border-radius: 16px; padding: 24px; background: #F0D45C;">
+        <div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">Sede</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 20px; line-height: 1.4;">Rua das Umburanas, 88 — Centro<br>Nova Olinda, CE · 63165-000</div>
+      </div>
+      <div style="border: 2px solid #1B2E1C; border-radius: 16px; padding: 24px; background: #FBF7EA;">
+        <div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">WhatsApp</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 24px;">(88) 9 9900-0000</div>
+        <div style="font-size: 13px; color: #6B7A5E; margin-top: 4px;">seg a sex, 8h às 17h</div>
+      </div>
+      <div style="border: 2px solid #1B2E1C; border-radius: 16px; padding: 24px; background: #FBF7EA;">
+        <div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;">E-mail</div>
+        <div style="font-family: 'Instrument Serif', serif; font-size: 22px;">ola@institutoraiz.org.br</div>
+      </div>
+      <div style="border: 2px solid #1B2E1C; border-radius: 16px; padding: 24px; background: #1B2E1C; color: #F4EEDF;">
+        <div style="font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; color: #F0D45C;">Redes</div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="#" style="border: 2px solid #F4EEDF; border-radius: 999px; padding: 8px 18px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">Instagram</a>
+          <a href="#" style="border: 2px solid #F4EEDF; border-radius: 999px; padding: 8px 18px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">YouTube</a>
+          <a href="#" style="border: 2px solid #F4EEDF; border-radius: 999px; padding: 8px 18px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 13px; text-transform: uppercase;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section data-screen-label="Perguntas frequentes" style="border-top: 2px solid #1B2E1C; background: #FBF7EA; padding: 88px 40px;">
+    <div style="max-width: 880px; margin: 0 auto;">
+      <h2 data-reveal style="margin: 0 0 36px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(32px, 4vw, 56px);">Perguntas <span style="color: #D93A21;">frequentes</span></h2>
+      <div data-reveal style="display: flex; flex-direction: column; gap: 12px;">
+        <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+          <div style="border: 2px solid #1B2E1C; border-radius: 16px; background: #F4EEDF; overflow: hidden;">
+            <button onClick="{{ f.alternar }}" style="width: 100%; text-align: left; background: transparent; border: none; cursor: pointer; padding: 22px 26px; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: Anton, sans-serif; text-transform: uppercase; font-size: 18px; color: #1B2E1C;">
+              <span>{{ f.q }}</span>
+              <span style="color: #D93A21; font-size: 24px; transition: transform 0.3s; transform: {{ f.giro }};">＋</span>
+            </button>
+            <div style="max-height: {{ f.altura }}; overflow: hidden; transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
+              <p style="margin: 0; padding: 0 26px 22px; font-size: 15px; line-height: 1.6; color: #3C4A36;">{{ f.a }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <footer data-screen-label="Rodapé" style="background: #14230F; color: #A9BCA0; border-top: 2px solid #1B2E1C;">
+    <div style="padding: 56px 40px 0; overflow: hidden;">
+      <div style="font-family: Anton, sans-serif; text-transform: uppercase; font-size: clamp(44px, 8vw, 128px); line-height: 0.95; color: #F4EEDF; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;">Instituto Raiz<span aria-hidden="true" style="color: #D93A21; font-size: 0.45em; display: inline-block; animation: raiz-spin 14s linear infinite;">✺</span></div>
+      <div style="font-family: 'Instrument Serif', serif; font-style: italic; font-size: 20px; color: #A9BCA0; margin-top: 12px;">Plantar futuro no sertão é coletivo.</div>
+    </div>
+    <div style="max-width: 1360px; margin: 0 auto; padding: 44px 40px 48px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.4fr; gap: 44px; border-bottom: 1px solid #3C4A36;">
+      <div style="display: flex; flex-direction: column; gap: 16px;">
+        <p style="margin: 0; font-size: 14px; line-height: 1.65; color: #A9BCA0; max-width: 360px;">OSCIP registrada — CNPJ 00.000.000/0001-00. Sede em Nova Olinda, Ceará. Balanços auditados e relatórios de plantio publicados anualmente.</p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">Instagram</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">YouTube</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">LinkedIn</a>
+          <a href="#" style="border: 2px solid #3C4A36; border-radius: 999px; padding: 7px 16px; color: #F4EEDF; text-decoration: none; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 1px;" style-hover="background: #F0D45C; color: #1B2E1C; border: 2px solid #F0D45C;">WhatsApp</a>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Conheça</div>
+        <a href="projetos.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Projetos</a>
+        <a href="voluntariado.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Voluntariado</a>
+        <a href="adote.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Adote uma árvore</a>
+        <a href="noticias.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Notícias</a>
+        <a href="sobre.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Sobre nós</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Apoie</div>
+        <a href="doar.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Doar agora</a>
+        <a href="empresas.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Para empresas</a>
+        <a href="transparencia.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Transparência</a>
+        <a href="contato.html" style="color: #DCE5D3; text-decoration: none; font-size: 15px; transition: color 0.2s, padding-left 0.2s;" style-hover="color: #F0D45C; padding-left: 6px;">Contato</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 12px; color: #F0D45C; margin-bottom: 4px;">Notícias da mata, na sua caixa</div>
+        <div style="display: flex; gap: 8px;">
+          <input type="email" placeholder="seu@email.com" style="flex: 1; background: #F4EEDF; border: none; border-radius: 999px; padding: 13px 18px; font-family: Archivo, sans-serif; font-size: 14px; color: #1B2E1C; min-width: 0;">
+          <button style="background: #D93A21; color: #F4EEDF; border: none; border-radius: 999px; padding: 13px 22px; font-family: Anton, sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; flex: none;" style-hover="background: #F0D45C; color: #1B2E1C;">Assinar</button>
+        </div>
+        <div style="font-size: 13px; color: #6B7A5E;">Uma carta por mês. Sem spam, só semente.</div>
+      </div>
+    </div>
+    <div style="max-width: 1360px; margin: 0 auto; padding: 20px 40px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px;">
+      <span>© 2026 Instituto Raiz</span>
+      <span style="color: #F0D45C;">Feito no sertão ✺</span>
+      <a href="#" style="color: #F4EEDF; text-decoration: none; font-weight: 700;" style-hover="color: #F0D45C;">↑ Voltar ao topo</a>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { aberta: 0 };
+  componentDidMount() {
+    const revealEl = (el) => {
+      if (el.hasAttribute('data-reveal')) el.classList.add('raiz-in');
+      if (el.hasAttribute('data-reveal-stagger')) {
+        Array.from(el.children).forEach((c, i) => {
+          setTimeout(() => { c.style.opacity = '1'; c.style.transform = 'translateY(0)'; }, i * 140);
+        });
+      }
+    };
+    document.querySelectorAll('[data-reveal-stagger]').forEach((el) => {
+      Array.from(el.children).forEach((c) => {
+        c.style.opacity = '0';
+        c.style.transform = 'translateY(48px)';
+        c.style.transition = 'opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1)';
+      });
+    });
+    const check = () => {
+      const vh = window.innerHeight;
+      document.querySelectorAll('[data-reveal], [data-reveal-stagger]').forEach((el) => {
+        if (el._raizDone) return;
+        if (el.getBoundingClientRect().top < vh * 0.92) { el._raizDone = true; revealEl(el); }
+      });
+    };
+    this._check = check;
+    document.addEventListener('scroll', check, true);
+    window.addEventListener('resize', check);
+    this._iv = setInterval(check, 350);
+    check();
+  }
+  componentWillUnmount() {
+    document.removeEventListener('scroll', this._check, true);
+    window.removeEventListener('resize', this._check);
+    clearInterval(this._iv);
+  }
+  renderVals() {
+    const dados = [
+      { q: 'Minha doação é dedutível no imposto de renda?', a: 'Sim. Somos OSCIP, então doações de pessoas jurídicas no lucro real são dedutíveis. Para pessoas físicas, emitimos recibo e orientamos sobre os fundos incentivados.' },
+      { q: 'Posso visitar os projetos?', a: 'Pode e deve! Fazemos visitas guiadas mensais aos viveiros e ao Corredor Verde. É só agendar pelo WhatsApp — doadores recorrentes têm prioridade.' },
+      { q: 'Como sei que minha árvore foi plantada mesmo?', a: 'Cada muda recebe um código no viveiro. Quando vai pro chão, você recebe foto, espécie e coordenada GPS. O mapa completo de plantios é público.' },
+      { q: 'Vocês atendem só o Ceará?', a: 'Por enquanto, sim: 9 municípios do Cariri cearense. Crescer com raiz é crescer devagar — expansão pro sertão do Piauí está planejada para 2027.' },
+      { q: 'Como uma escola entra na rede de viveiros?', a: 'A direção manifesta interesse, a comunidade escolar topa cuidar, e a gente entra com estrutura, mudas e formação. A fila de espera atual é de 11 escolas — doações aceleram isso.' }
+    ];
+    const faqs = dados.map((d, i) => ({
+      ...d,
+      alternar: () => this.setState({ aberta: this.state.aberta === i ? -1 : i }),
+      altura: this.state.aberta === i ? '200px' : '0px',
+      giro: this.state.aberta === i ? 'rotate(45deg)' : 'rotate(0deg)'
+    }));
+    return { faqs };
+  }
+}
+</script>
+</body>
+</html>
