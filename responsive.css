@@ -37,7 +37,6 @@ img, svg, image-slot, video, iframe { max-width: 100%; }
 @media (max-width: 760px) {
   [style*="grid-template-columns: repeat(4, 1fr)"],
   [style*="grid-template-columns: repeat(3, 1fr)"],
-  [style*="grid-template-columns: 1.5fr 1fr 1fr 1.4fr"],
   [style*="grid-template-columns: 1fr 1fr"],
   [style*="grid-template-columns: 1fr 1.5fr"],
   [style*="grid-template-columns: 1.5fr 1fr"],
@@ -51,6 +50,17 @@ img, svg, image-slot, video, iframe { max-width: 100%; }
   [style*="grid-template-columns: 220px 1fr"],
   [style*="grid-template-columns: 140px 1fr auto auto"] {
     grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== Rodapé: bloco Conheça + Apoie lado a lado (2 colunas) no mobile ===== */
+@media (max-width: 760px) {
+  [style*="grid-template-columns: 1.5fr 1fr 1fr 1.4fr"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  [style*="grid-template-columns: 1.5fr 1fr 1fr 1.4fr"] > *:first-child,
+  [style*="grid-template-columns: 1.5fr 1fr 1fr 1.4fr"] > *:last-child {
+    grid-column: 1 / -1 !important;
   }
 }
 
