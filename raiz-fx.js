@@ -17,7 +17,9 @@
   }
   var fabT = function () {
     var f = document.getElementById('raiz-fab'); if (!f) return;
-    var on = (window.scrollY || document.documentElement.scrollTop || 0) > 500;
+    var y = window.scrollY || document.documentElement.scrollTop || 0;
+    var nearFooter = y + window.innerHeight > document.documentElement.scrollHeight - 140;
+    var on = y > 500 && !nearFooter;
     f.style.opacity = on ? '1' : '0';
     f.style.pointerEvents = on ? 'auto' : 'none';
     f.style.transform = on ? 'translateY(0)' : 'translateY(16px)';
