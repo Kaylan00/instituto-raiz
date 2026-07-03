@@ -1,0 +1,65 @@
+/* Instituto Raiz — ajustes de responsividade mobile (agregado às páginas .html) */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body { max-width: 100%; overflow-x: hidden; }
+
+img, svg, image-slot, video, iframe { max-width: 100%; }
+
+/* ===== Navegação: vira menu hambúrguer abaixo de 860px ===== */
+.raiz-burger {
+  display: none;
+  width: 40px; height: 40px; flex: none;
+  border: 2px solid currentColor; border-radius: 10px;
+  background: transparent; cursor: pointer;
+  align-items: center; justify-content: center;
+}
+.raiz-burger svg { width: 20px; height: 20px; }
+
+@media (max-width: 860px) {
+  nav[data-screen-label="Navegação"] { flex-wrap: nowrap; padding: 14px 20px !important; }
+  nav[data-screen-label="Navegação"] > .raiz-nav-menu {
+    display: none !important;
+    position: fixed; top: 68px; left: 0; right: 0;
+    flex-direction: column !important; align-items: stretch !important;
+    justify-content: flex-start !important;
+    padding: 18px 24px 26px !important; margin: 0; gap: 16px !important;
+    max-height: calc(100vh - 68px); overflow-y: auto;
+    box-shadow: 0 18px 24px -14px rgba(0,0,0,0.35);
+    z-index: 60;
+  }
+  nav[data-screen-label="Navegação"].raiz-nav-open > .raiz-nav-menu { display: flex !important; }
+  nav[data-screen-label="Navegação"] > .raiz-nav-menu > a { font-size: 16px !important; }
+  .raiz-burger { display: inline-flex; }
+}
+
+/* ===== Grids: colapsam para 1 coluna no mobile ===== */
+@media (max-width: 760px) {
+  [style*="grid-template-columns: repeat(4, 1fr)"],
+  [style*="grid-template-columns: repeat(3, 1fr)"],
+  [style*="grid-template-columns: 1.5fr 1fr 1fr 1.4fr"],
+  [style*="grid-template-columns: 1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.5fr"],
+  [style*="grid-template-columns: 1.5fr 1fr"],
+  [style*="grid-template-columns: 1.3fr 1fr"],
+  [style*="grid-template-columns: 1.1fr 1fr"],
+  [style*="grid-template-columns: 1.2fr 1fr"],
+  [style*="grid-template-columns: 1fr 1.4fr"],
+  [style*="grid-template-columns: 1fr 1.3fr"],
+  [style*="grid-template-columns: auto 1fr"],
+  [style*="grid-template-columns: 1fr auto"],
+  [style*="grid-template-columns: 220px 1fr"],
+  [style*="grid-template-columns: 140px 1fr auto auto"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ===== Hero: pills de imagem não forçam largura mínima grande ===== */
+@media (max-width: 640px) {
+  [style*="clamp(140px, 14vw, 240px)"] { width: clamp(90px, 26vw, 140px) !important; }
+  [style*="clamp(64px, 7vw, 118px)"] { height: clamp(46px, 13vw, 70px) !important; }
+}
+
+@media (max-width: 480px) {
+  nav[data-screen-label="Navegação"] > a > div:last-child { font-size: 16px !important; }
+}

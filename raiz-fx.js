@@ -25,6 +25,37 @@
   document.addEventListener('scroll', fabT, true);
   setInterval(fabT, 400);
 
+  // Menu hambúrguer (mobile) — nav é remontado pelo runtime, então tenta até existir
+  var burgerReady = false;
+  var burgerIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+  var closeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+  var setupBurger = function () {
+    if (burgerReady) return;
+    var nav = document.querySelector('nav[data-screen-label="Navegação"]');
+    if (!nav) return;
+    var menu = nav.lastElementChild;
+    if (!menu || menu === nav.firstElementChild) return;
+    burgerReady = true;
+    menu.classList.add('raiz-nav-menu');
+    menu.style.background = getComputedStyle(nav).backgroundColor;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'raiz-burger';
+    btn.setAttribute('aria-label', 'Abrir menu');
+    var navColor = getComputedStyle(nav.firstElementChild).color;
+    btn.style.color = navColor || '#1B2E1C';
+    btn.innerHTML = burgerIcon;
+    nav.appendChild(btn);
+    var close = function () { nav.classList.remove('raiz-nav-open'); btn.innerHTML = burgerIcon; };
+    btn.addEventListener('click', function () {
+      var open = nav.classList.toggle('raiz-nav-open');
+      btn.innerHTML = open ? closeIcon : burgerIcon;
+    });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+  };
+  setupBurger();
+  setInterval(setupBurger, 400);
+
   // Cursor personalizado (só onde há mouse)
   if (window.matchMedia && window.matchMedia('(hover: none)').matches) return;
   var ring = document.createElement('div');
