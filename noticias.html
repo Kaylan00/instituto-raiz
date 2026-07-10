@@ -16,6 +16,7 @@
     @keyframes raiz-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
   </style>
   <script src="./raiz-fx.js"></script>
+  <script src="./raiz-wix.js"></script>
 </helmet>
 
 <div style="font-family: Archivo, sans-serif; background: #F4EEDF; color: #1B2E1C; min-height: 100vh;">
@@ -115,7 +116,7 @@
       </div>
     </div>
     <div style="max-width: 1360px; margin: 0 auto; padding: 20px 40px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px;">
-      <span>© 2026 Instituto Raiz</span>
+      <span>© 2026 Instituto Raiz · Desenvolvido por Kaylan Argollo</span>
       <span style="color: #F0D45C;">Feito no sertão ✺</span>
       <a href="#" style="color: #F4EEDF; text-decoration: none; font-weight: 700;" style-hover="color: #F0D45C;">↑ Voltar ao topo</a>
     </div>
@@ -125,8 +126,19 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { filtro: 'Todas' };
+  componentDidMount() {
+    // CMS Wix (headless): troca as notícias pelo conteúdo do CMS quando disponível.
+    // Em qualquer falha, o fallback local abaixo continua valendo.
+    if (window.RaizWix) {
+      window.RaizWix.query('Noticias', { sort: [{ fieldName: 'ordem', order: 'ASC' }] })
+        .then((itens) => {
+          if (itens && itens.length) this.setState({ cmsNoticias: itens });
+        })
+        .catch(() => {});
+    }
+  }
   renderVals() {
-    const todas = [
+    const fallback = [
       { tag: 'Notícia', data: 'Jun 2026', titulo: 'Corredor Verde do Cariri recebe apoio internacional', resumo: 'Fundo climático aprova financiamento para restaurar 120 hectares ao longo do rio Cariús.', img: 'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=800&q=75&auto=format&fit=crop' },
       { tag: 'Mutirão', data: 'Mai 2026', titulo: '300 voluntários plantam 2 mil mudas em um dia', resumo: 'Maior mutirão da nossa história marcou o Dia da Caatinga em Nova Olinda.', img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?w=800&q=75&auto=format&fit=crop' },
       { tag: 'História', data: 'Abr 2026', titulo: 'A guardiã que virou bióloga: a história de Ana', resumo: 'Da primeira muda ao vestibular: como o programa mudou o rumo de uma geração.', img: 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?w=800&q=75&auto=format&fit=crop' },
@@ -137,6 +149,10 @@ class Component extends DCLogic {
       { tag: 'Notícia', data: 'Nov 2025', titulo: 'Ipês floridos marcam os 5 anos do primeiro plantio', resumo: 'As árvores da turma de 2020 floresceram juntas pela primeira vez.', img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=75&auto=format&fit=crop' },
       { tag: 'Institucional', data: 'Out 2025', titulo: 'Instituto Raiz vence prêmio nacional de educação ambiental', resumo: 'Programa Guardiões da Caatinga é reconhecido entre 400 iniciativas do país.', img: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=800&q=75&auto=format&fit=crop' }
     ];
+    const cms = this.state.cmsNoticias;
+    const todas = (cms && cms.length)
+      ? cms.map((n) => ({ tag: n.categoria, data: n.data, titulo: n.titulo, resumo: n.resumo, img: n.img }))
+      : fallback;
     const nomes = ['Todas', 'Notícia', 'Mutirão', 'História', 'Institucional'];
     const filtros = nomes.map((nome) => ({
       nome,

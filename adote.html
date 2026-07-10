@@ -18,6 +18,7 @@
     [data-reveal].raiz-in { opacity: 1; transform: translateY(0); }
   </style>
   <script src="./raiz-fx.js"></script>
+  <script src="./raiz-wix.js"></script>
 </helmet>
 
 <div style="font-family: Archivo, sans-serif; background: #F4EEDF; color: #1B2E1C; min-height: 100vh;">
@@ -144,7 +145,7 @@
       </div>
     </div>
     <div style="max-width: 1360px; margin: 0 auto; padding: 20px 40px 28px; display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; font-size: 13px;">
-      <span>© 2026 Instituto Raiz</span>
+      <span>© 2026 Instituto Raiz · Desenvolvido por Kaylan Argollo</span>
       <span style="color: #F0D45C;">Feito no sertão ✺</span>
       <a href="#" style="color: #F4EEDF; text-decoration: none; font-weight: 700;" style-hover="color: #F0D45C;">↑ Voltar ao topo</a>
     </div>
@@ -182,6 +183,15 @@ class Component extends DCLogic {
     window.addEventListener('resize', check);
     this._iv = setInterval(check, 350);
     check();
+    // CMS Wix (headless): substitui as espécies pelo conteúdo do CMS quando disponível.
+    // Em qualquer falha, o fallback local abaixo continua valendo.
+    if (window.RaizWix) {
+      window.RaizWix.query('Especies', { sort: [{ fieldName: 'ordem', order: 'ASC' }] })
+        .then((itens) => {
+          if (itens && itens.length) this.setState({ cmsEspecies: itens });
+        })
+        .catch(() => {});
+    }
   }
   componentWillUnmount() {
     document.removeEventListener('scroll', this._check, true);
@@ -189,12 +199,16 @@ class Component extends DCLogic {
     clearInterval(this._iv);
   }
   renderVals() {
-    const dados = [
+    const fallback = [
       { nome: 'Juazeiro', cientifico: 'Ziziphus joazeiro', desc: 'A árvore que nunca perde a folha, nem na seca mais braba. Sombra garantida.', preco: 60, img: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=75&auto=format&fit=crop' },
       { nome: 'Umbuzeiro', cientifico: 'Spondias tuberosa', desc: 'Guarda água nas raízes e dá o umbu da umbuzada. A despensa do sertão.', preco: 75, img: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=600&q=75&auto=format&fit=crop' },
       { nome: 'Aroeira', cientifico: 'Myracrodruon urundeuva', desc: 'Madeira nobre, remédio do povo e abrigo de abelhas nativas.', preco: 65, img: 'https://images.unsplash.com/photo-1518495973542-4542c06a5843?w=600&q=75&auto=format&fit=crop' },
       { nome: 'Ipê-amarelo', cientifico: 'Handroanthus albus', desc: 'Quando floresce, o sertão inteiro para pra olhar. Puro espetáculo.', preco: 80, img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=75&auto=format&fit=crop' }
     ];
+    const cms = this.state.cmsEspecies;
+    const dados = (cms && cms.length)
+      ? cms.map((d) => ({ nome: d.nome, cientifico: d.cientifico, desc: d.descricao, preco: d.preco, img: d.foto }))
+      : fallback;
     const sel = this.state.especie;
     const especies = dados.map((d, i) => ({
       ...d,

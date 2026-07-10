@@ -1,0 +1,171 @@
+/* ============================================================
+   INSTITUTO RAIZ — CSS para o painel de código do Wix Studio
+   Cole tudo isto em: Wix Studio > Código (</>) > CSS global.
+   Depois, no editor, atribua a cada elemento a "Classe CSS"
+   indicada no passo a passo (ex.: raiz-btn, raiz-card...).
+   ============================================================ */
+
+/* ---------- 1. TOKENS (paleta + fontes) ---------- */
+:root {
+  --bg:        #F4EEDF;  /* fundo creme */
+  --bg-warm:   #FBF7EA;  /* fundo quente (seções alternadas) */
+  --ink:       #1B2E1C;  /* verde-escuro (texto/bordas) */
+  --ink-deep:  #14230F;  /* verde do rodapé */
+  --accent:    #D93A21;  /* laranja/terracota */
+  --yellow:    #F0D45C;  /* amarelo-mostarda */
+  --green-1:   #3C4A36;  /* texto de apoio */
+  --green-2:   #6B7A5E;  /* legendas */
+  --green-3:   #A9BCA0;  /* texto sobre fundo escuro */
+  --green-4:   #DCE5D3;
+  --line:      #1B2E1C;
+
+  --font-display: 'Anton', sans-serif;      /* títulos caixa-alta */
+  --font-sans:    'Archivo', sans-serif;    /* corpo */
+  --font-serif:   'Instrument Serif', serif;/* itálico / números */
+
+  --radius:   18px;
+  --radius-sm:16px;
+  --shadow-hard: 8px 8px 0 var(--ink);      /* sombra dura característica */
+}
+
+/* ---------- 2. BASE ---------- */
+.raiz-body, body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+/* Títulos display (Anton, caixa-alta) */
+.raiz-h1 { font-family: var(--font-display); text-transform: uppercase; line-height: 0.98; letter-spacing: -1px; color: var(--ink); }
+.raiz-h2 { font-family: var(--font-display); text-transform: uppercase; line-height: 1.02; letter-spacing: 1.5px; color: var(--ink); }
+.raiz-h3 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 1.5px; }
+
+/* destaque em laranja dentro de título */
+.raiz-accent { color: var(--accent); }
+.raiz-yellow { color: var(--yellow); }
+
+/* frase serifada itálica (subtítulos / números grandes) */
+.raiz-serif  { font-family: var(--font-serif); font-style: italic; color: var(--green-1); }
+.raiz-number { font-family: var(--font-serif); line-height: 1; }
+
+/* ---------- 3. BOTÕES (pill) ---------- */
+.raiz-btn {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 999px;
+  padding: 15px 34px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid var(--ink);
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+/* variações */
+.raiz-btn--dark    { background: var(--ink);    color: var(--bg); }
+.raiz-btn--dark:hover    { background: var(--accent); }
+.raiz-btn--accent  { background: var(--accent); color: var(--bg); }
+.raiz-btn--accent:hover  { background: var(--ink); }
+.raiz-btn--ghost   { background: transparent;   color: var(--ink); }
+.raiz-btn--ghost:hover   { background: var(--yellow); }
+
+/* ---------- 4. TAGS / PILLS pequenas ---------- */
+.raiz-tag {
+  font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+  border: 1.5px solid var(--ink); border-radius: 999px; padding: 4px 12px;
+  display: inline-block;
+}
+.raiz-tag--yellow { background: var(--yellow); }
+
+/* ---------- 5. CARDS ---------- */
+.raiz-card {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--bg-warm);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+/* card com hover de "levantar + sombra dura" */
+.raiz-card--lift:hover {
+  transform: translate(-4px, -4px);
+  box-shadow: var(--shadow-hard);
+}
+
+/* card de estatística (Impacto) */
+.raiz-stat {
+  border: 2px solid var(--ink);
+  border-radius: var(--radius-sm);
+  padding: 28px 24px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.raiz-stat--yellow { background: var(--yellow); }
+.raiz-stat--cream  { background: var(--bg-warm); }
+.raiz-stat:hover   { transform: translate(-4px,-4px) rotate(-1deg); box-shadow: var(--shadow-hard); }
+.raiz-stat__num    { font-family: var(--font-serif); font-size: 56px; line-height: 1; }
+
+/* imagem topo de card */
+.raiz-card__img { width: 100%; object-fit: cover; border-bottom: 2px solid var(--ink); display: block; transition: transform .5s cubic-bezier(0.16,1,0.3,1); }
+.raiz-card--lift:hover .raiz-card__img { transform: scale(1.05); }
+
+/* ---------- 6. ESTRELA ✺ ---------- */
+.raiz-star { color: var(--accent); display: inline-block; line-height: 1; }
+.raiz-star--spin  { animation: raiz-spin 14s linear infinite; }
+.raiz-star--float { animation: raiz-float 7s ease-in-out infinite; }
+
+/* ---------- 7. HERO (fundo de bolinhas) ---------- */
+.raiz-hero {
+  position: relative; overflow: hidden;
+  background-color: var(--bg);
+  background-image: radial-gradient(var(--ink) 1px, transparent 1.5px);
+  background-size: 34px 34px;
+}
+/* pílula de imagem dentro do título do hero */
+.raiz-pill-img { border-radius: 999px; object-fit: cover; display: block; }
+
+/* ---------- 8. SEÇÕES (fundos alternados) ---------- */
+.raiz-sec        { padding: 88px 40px; }
+.raiz-sec--warm  { background: var(--bg-warm); border-top: 2px solid var(--ink); }
+.raiz-sec--dark  { background: var(--ink); color: var(--bg); border-top: 2px solid var(--ink); }
+.raiz-sec--accent{ background: var(--accent); color: var(--bg); border-top: 2px solid var(--ink); }
+.raiz-on-dark    { color: var(--green-3); }         /* texto de apoio sobre fundo escuro */
+
+/* ---------- 9. MARQUEE (faixa rolando) ----------
+   OBS: precisa de HTML/CSS custom (elemento "Embed > HTML") OU
+   de uma interação/loop do Studio. A animação abaixo serve
+   se você usar um Embed com <div class="raiz-marquee__track">. */
+.raiz-marquee {
+  background: var(--accent); color: var(--bg);
+  border-top: 2px solid var(--ink); border-bottom: 2px solid var(--ink);
+  overflow: hidden; padding: 14px 0;
+}
+.raiz-marquee__track {
+  display: inline-flex; gap: 36px; white-space: nowrap;
+  font-family: var(--font-display); text-transform: uppercase; letter-spacing: 2px;
+  animation: raiz-marquee 28s linear infinite;
+}
+@keyframes raiz-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ---------- 10. RODAPÉ ---------- */
+.raiz-footer      { background: var(--ink-deep); color: var(--green-3); border-top: 2px solid var(--ink); }
+.raiz-footer__big { font-family: var(--font-display); text-transform: uppercase; line-height: .95; color: var(--bg); }
+.raiz-footer__link{ color: var(--green-4); text-decoration: none; transition: color .2s, padding-left .2s; }
+.raiz-footer__link:hover { color: var(--yellow); padding-left: 6px; }
+.raiz-social {
+  border: 2px solid var(--green-1); border-radius: 999px; padding: 7px 16px;
+  color: var(--bg); text-decoration: none; font-weight: 700; font-size: 12px;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.raiz-social:hover { background: var(--ink); border-color: var(--ink); }
+
+/* ---------- 11. ANIMAÇÕES de apoio (keyframes) ---------- */
+@keyframes raiz-spin  { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes raiz-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-14px); } }
+@keyframes raiz-rise  { from { opacity:0; transform: translateY(60px); } to { opacity:1; transform: translateY(0); } }
+
+/* ---------- 12. RESPONSIVO (mobile) ----------
+   No Wix Studio o grid vira 1 coluna pelos breakpoints do editor.
+   Estes ajustes de fonte são um reforço opcional. */
+@media (max-width: 750px) {
+  .raiz-sec { padding: 56px 20px; }
+}
